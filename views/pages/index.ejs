@@ -1,0 +1,46 @@
+<%- layout("/layouts/boilerplate") %>
+
+
+
+<body>
+  
+
+
+  <form method="get" action="/users/new">
+    <button class="btn btn-success btn-new">Create New User</button> 
+  </form>
+
+  <% for(user of users) { %> 
+    <form method="get" action="/users/<%=user._id%>">
+ 
+    <div class="listing-card" style="width:20rem;">
+        <img src="<%=user.avatar%>" class="card-img-top" alt="user">
+      
+        <div class="card-body" id="card-body">
+    
+          <p class="card-text"><i><b><%=user.first_name%> <%=user.last_name%></b></i> </p>
+          <p class="card-text"><%=user.domain%></p>
+       
+       <% if(user.available) { %>
+            <form method="post" action="/users/<%=user._id%>/add-to-cart">
+              <button class="btn btn-warning btn-join">Available</button>
+            </form>
+          <% } else { %>
+            <button class="btn btn-secondary btn-avial" disabled>Not Available</button>
+          <% } %>
+          <form method="get" action="/users/<%=user._id%>">
+            <button class="btn btn-info">View Details</button>
+          </form>
+
+  
+      </div>
+      
+      </div>
+    
+    
+ <% } %>
+
+</form>
+
+</body>
+</html>

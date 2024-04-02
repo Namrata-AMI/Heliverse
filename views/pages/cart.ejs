@@ -1,0 +1,10 @@
+<%- layout("/layouts/boilerplate") %>
+
+<body>
+  <h1>Cart</h1>
+  <ul>
+    <% cartItems.forEach(item => { %>
+      <li><%= item.first_name %> <%= item.last_name %></li>
+    <% }); %>
+  </ul>
+</body>

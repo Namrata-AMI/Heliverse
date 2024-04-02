@@ -1,0 +1,42 @@
+<%- layout("/layouts/boilerplate") %>
+
+
+<body>
+    <div class="row">
+        <div class="col-8 offset-2 mt-3">
+       
+    <h3> Edit user</h3>
+
+    <form method="post" action="/users/<%= users._id %>?_method=PUT" novalidate class="needs-validation"> 
+
+        <div class="mb-3">  
+            <label for="first_name" class="form-label">firstname</label>
+            <input type="text" name="user[first_name]" value="<%= users.first_name %>" class="form-control" required>
+        </div>
+  
+        <div class="mb-3">
+            <label for="last_name" class="form-label">Lastname</label>
+            <input type="text" name="user[last_name]" class="form-control"value ="<%= users.last_name %>" required> 
+            
+        </div>
+
+        <div class="mb-3">
+            <label for="email" class="form-label">email</label>
+        <input type="text" name="user[eail]"value="<%= users.email %>" class="form-control" required>
+        <div class="invalid-feedback"> correct email required!</div>
+        </div>
+
+        <div class="mb-3">
+            <div  class="mb-3">
+                <label for="domain" class="form-label">domain</label>
+            <input type="text" name="user[doamin]" value="<%= users.domain %>"class="form-control" required >
+    
+             </div>
+    
+        
+        <button class="btn btn-dark mt-3 edit-btn">Edit</button>
+        <br><br>
+    </form>
+</div>
+</div>
+</body>
